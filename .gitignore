@@ -1,0 +1,17 @@
+# Virtual environment
+.thornwood_env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Course material (reference only, not redistributed)
+doc/
+Assignment*.pdf
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
