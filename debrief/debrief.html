@@ -4,59 +4,57 @@
 <meta charset="utf-8">
 <title>Thornwood Debrief</title>
 <style>
+  /* Strict black and white: no colour and no grey fills. */
   @page { size: A4; margin: 12mm 13mm 12mm 13mm; }
-  :root {
-    --ink: #1d1f23; --muted: #5b616b; --rule: #d5d9df; --accent: #8a3b12;
-    --tint: #f5f1ec; --good: #1f6b3a; --bad: #9b1c1c;
-  }
   * { box-sizing: border-box; }
-  html { background: #fff; }
-  body { margin: 0; color: var(--ink); background: #fff;
-         font: 9.1pt/1.34 "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
-  h1 { font-size: 16pt; margin: 0 0 1mm; color: var(--accent); letter-spacing: .2px; }
-  .sub { color: var(--muted); margin: 0 0 3mm; font-size: 8.8pt; }
-  h2 { font-size: 11pt; margin: 3.6mm 0 1.2mm; padding-bottom: .8mm;
-       border-bottom: 1.4px solid var(--accent); color: var(--accent); }
-  h2 .who { color: var(--muted); font-weight: 500; font-size: 9pt; }
+  html, body { background: #fff; color: #000; }
+  body { margin: 0; font: 9.1pt/1.34 "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+  h1 { font-size: 16pt; margin: 0 0 1.4mm; letter-spacing: .2px; }
+  .team { border-collapse: collapse; margin: 0 0 2mm; font-size: 8.8pt; }
+  .team td { border: 1px solid #000; padding: .5mm 2.4mm; text-align: left; }
+  .team td.r { font-variant-numeric: tabular-nums; }
+  .sub { margin: 0 0 3mm; font-size: 8.8pt; }
+  h2 { font-size: 11pt; margin: 3.6mm 0 1.2mm; padding-bottom: .8mm; border-bottom: 1.6px solid #000; }
+  h2 .who { font-weight: 400; font-style: italic; font-size: 9pt; }
   h3 { font-size: 9.6pt; margin: 2.4mm 0 .8mm; }
   p { margin: 0 0 1.6mm; }
   ul { margin: 0 0 1.6mm; padding-left: 4.5mm; }
   li { margin-bottom: .6mm; }
-  .q { font-style: italic; color: var(--muted); margin-bottom: 1.4mm; }
   table { border-collapse: collapse; font-size: 8.4pt; margin: 0 0 2mm; }
-  th, td { padding: .5mm 1.8mm; border-bottom: 1px solid var(--rule); text-align: right;
+  th, td { padding: .5mm 1.8mm; border-bottom: .6px solid #000; text-align: right;
            font-variant-numeric: tabular-nums; }
-  th { background: var(--tint); font-weight: 600; border-bottom: 1px solid #bfc4cb; }
+  th { font-weight: 700; border-top: 1.2px solid #000; border-bottom: 1.2px solid #000; }
   td.l, th.l { text-align: left; }
-  tr.hl td { background: #fbefe4; font-weight: 600; }
+  tr.hl td { font-weight: 700; }
   .row { display: flex; gap: 5mm; align-items: flex-start; }
   .row > * { flex: 0 0 auto; }
   .grow { flex: 1 1 0 !important; min-width: 0; }
   pre, code { font-family: Consolas, "Cascadia Mono", "Courier New", monospace; }
-  code { font-size: 8.6pt; background: var(--tint); padding: 0 .8mm; border-radius: 1px; }
+  code { font-size: 8.6pt; }
   .boards { display: flex; gap: 3.2mm; margin: 1mm 0 2mm; }
-  .board { text-align: center; font-size: 7.8pt; color: var(--muted); }
-  .board pre { margin: 0 0 .6mm; font-size: 9.4pt; line-height: 1.12; letter-spacing: 2.2px;
-               color: var(--ink); padding: 1mm 1.4mm; border: 1px solid var(--rule);
-               background: #fcfbf9; }
-  .board b { color: var(--bad); }
-  .board i { color: var(--good); font-style: normal; font-weight: 700; }
+  .board { text-align: center; font-size: 7.8pt; }
+  .board pre { margin: 0 0 .6mm; font-size: 9.4pt; line-height: 1.18; letter-spacing: 2.2px;
+               padding: 1mm 1.4mm; border: 1px solid #000; }
+  .board b, .board i { background: #000; color: #fff; font-weight: 700; font-style: normal; }
   .nb { display: grid; grid-template-columns: repeat(3, 10mm); gap: 0; margin: 0 0 2mm;
         font-size: 8.6pt; text-align: center; }
-  .nb div { border: 1px solid var(--rule); padding: .5mm 0; }
-  .nb .c { background: #fbefe4; font-weight: 700; }
-  .nb .n { background: var(--tint); }
-  .callout { border-left: 2.4px solid var(--accent); background: var(--tint);
-             padding: 1.2mm 2.4mm; margin: 1.4mm 0 2mm; }
-  .tiny { font-size: 7.8pt; color: var(--muted); }
-  .pb { break-before: page; }
+  .nb div { border: .6px solid #000; padding: .5mm 0; }
+  .nb .c { background: #000; color: #fff; font-weight: 700; }
+  .nb .n { font-weight: 700; }
+  .tiny { font-size: 7.8pt; }
   .keep, table, .boards, .row, .nb { break-inside: avoid; }
   h2, h3 { break-after: avoid; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 </style>
 </head>
 <body>
 
 <h1>Thornwood Rescue: Strategist's Debrief</h1>
+<table class="team">
+  <tr><td>Muhammad Wasay Tariq</td><td class="r">24I-3071</td></tr>
+  <tr><td>Muhammad Rayyan Hassan</td><td class="r">24I-3000</td></tr>
+  <tr><td>Zain Bin Jabir</td><td class="r">24I-3130</td></tr>
+</table>
 <p class="sub">Assignment 02 (SE AI). Every number below comes from <code>thornwood.py</code> (the Owl Cipher) or from
 <code>debrief_runs.py</code>, which reruns the same functions with extra instrumentation and asserts that each rerun
 reproduces <code>thornwood.py</code> exactly. The extra runs are not part of the Owl Cipher. Mission status: <b>SUCCESS</b> (MM_VALUE = 1).</p>
@@ -211,7 +209,7 @@ keeps every member legal, and the higher mutation rate helps restore lost divers
 <p><b>All four losing moves lose the same way, at once.</b> O already holds (3,1), (1,3) and (0,4) on the falling diagonal. The missing cell is
 (2,2), which is exactly where the next stone in column 2 lands. If X plays anywhere except column 2, <b>Vesper drops into column 2</b> and
 completes four with 9 cells still empty, so the utility is −(1+9) = −10. X has no immediate win of its own, so nothing X does elsewhere comes
-first. The principal variation for each loss is just two plies: X0/X1/X3/X4, then O2. Final positions (row 4 at the top; <b>red</b> marks
+first. The principal variation for each loss is just two plies: X0/X1/X3/X4, then O2. Final positions (row 4 at the top; <b>inverted cells</b> mark
 O's line):</p>
 <div class="boards">
   <div class="board"><pre>.....
@@ -241,7 +239,7 @@ O<i>X</i>OOO
 OXXXO</pre>X2 … X4 → +1</div>
 </div>
 <p><b>The winning move 2</b> blocks (2,2) with X. After that, O has no immediate win. Best play by both sides then runs
-<code>X2 O0 X0 O1 X2 O2 X3 O4 X4 O4 X4</code>: X fills the last cell and completes the rising diagonal (1,1)–(2,2)–(3,3)–(4,4) (green), using the stone from move 2. Since no
+<code>X2 O0 X0 O1 X2 O2 X3 O4 X4 O4 X4</code>: X fills the last cell and completes the rising diagonal (1,1)–(2,2)–(3,3)–(4,4) (inverted), using the stone from move 2. Since no
 cells are left, the utility is 1 + 0 = +1. Vesper can hold out to the final stone, but cannot avoid losing.</p>
 
 <!-- ======================================================================= -->
