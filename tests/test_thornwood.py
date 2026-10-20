@@ -426,3 +426,11 @@ def test_bound_formatting():
     assert tw.fmt_bound(-tw.INF) == "-inf" and tw.fmt_bound(tw.INF) == "inf"
     assert tw.fmt_bound(-15) == "-15"
     assert tw.fmt_average(2964, 20) == "148.20"
+
+
+def test_debrief_runs_script_completes():
+    """debrief_runs.py asserts its instrumented re-runs match thornwood.py."""
+    result = subprocess.run([sys.executable, str(ROOT / "debrief_runs.py")],
+                            capture_output=True, text=True, cwd=ROOT)
+    assert result.returncode == 0, result.stderr
+    assert "Q5 JUN" in result.stdout
